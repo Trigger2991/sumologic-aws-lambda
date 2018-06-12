@@ -2,18 +2,15 @@ sudo: required
 dist: trusty
 language: node_js
 python:
-- "2.7"
-
+- '2.7'
 jobs:
   include:
-    - stage: Node 8
-      node_js: '8.10'
-      env: FUNCTION_DIR=dlq_processor TEST_FILE=test_cwl_lambda.py
-
-    - stage: Node 8
-      node_js: '8.10'
-      env: FUNCTION_DIR=loggroup-lambda-connector TEST_FILE=test_loggroup_lambda_connector.py
-
+  - stage: Node 8
+    node_js: '8.10'
+    env: FUNCTION_DIR=dlq_processor TEST_FILE=test_cwl_lambda.py
+  - stage: Node 8
+    node_js: '8.10'
+    env: FUNCTION_DIR=loggroup-lambda-connector TEST_FILE=test_loggroup_lambda_connector.py
 before_install:
 - sudo apt-get install python-pip
 - cd $FUNCTION_DIR
@@ -21,7 +18,6 @@ before_install:
 script:
 - npm run build
 - python $TEST_FILE
-
 env:
   global:
-  - secure: sD0RwgZ/hpx+WhuxOU1wNmm9Q+6DC0EOaJY241SrKAgsNUTAVtl6PgDWQ/7oWRpeDH4F0Tl85gFik0YQRvo909IDPZ+VLJ0Low4SlhMsxYQexCww1VvD9NoVR9cKSXNmdPKz0ioAMV9SVLijPKLxfzO4olujcFLXqr45xnwAEa+4nYIC1Q3Rw+NDI+ovN5izVrT2jERpjP4kQJM5aVJIieFD0AaHR2bsLbTaksnx1NC3evxY3UQr1TYUstoS7WBC6SpLRpN2454ecJACqvmxWMMUhK+KhpmWzi8Dsg9R2ENoGb7whBmnK2HIGEqNr5zvcBc/z3UZnDtakzsLvob/RfWwZ5e0Eg34Ru11jiDdStXv1TaO6fZZ6MkjWsdq28OnL2qhc9cgJfq8pVkqeDP3u94mgLdkKN2HgitcPuhgudT4mHSi6c3oy5NAqb65TUrIWUErww4D8iaH6rNp2FWC/ou2fFLN6x+iK+zPtNvKpTqcU6xhBjCu4Lcpq/HBXfLb/bXB3sd9JhPtflR5Ut3B7lNoHpE0/9yEtSj9Hp1ksbI9XizEjskeyqzLbQXECxpwT6T6l+X+eeZLDnZSZ7wsa1EgHrAWq1OhDcWwtzsd8h35r6NeKAaVfgIUecKbwIq+VAyRqbeSbFhJwFVRE7uxKOqXFzYspYTA/13Xht4cnf0=
+  - secure: sQf1PTch8trysQbH4Pwdikzxhh6pCPglyRe882+h1fW2NYUdnNrn3k0zaCE/u/K6f6Vo408Gk795A8t8RsvpzM3Ix5E7UqabfArLMkKAYUqeSxS9rd5UtG5m58srcYius+x1Nu5rrmZEUSmS1GpMZentTC7zGJx9HZWMaNh0mfK2DRYooeuWgufPWQCsciQwopiHTBgHd1I8sEGJDuqQcaKpn/B1wGEJl/0AO+Bw9SNCXIfqHyLWPXClQ8kAYs0nTcsZQlc9gVEwgDdBOSPSywsfIZ4AXnhfGil5kt7+Kp5RYtH8JnXObAycn2OndvVuFc0GupArNH/fOOA0i2ZtXvl3vHxsma4rG5/0KMYRA/y73FX59tTQ45Gaq0aySydIH6ryx7UQjG963kmLbDj2gsBGZdIJ1116cghxJUQEUNr0ikJyDE+ftUZ7LpuN7lhEvQTzfq+UEj0RJmbx2gFgkBZrtJRCGzv3IidNIsPAUmGbhlFZ+n/cFde96s0E3nN0y+C3KH6pIniar/T00g4GOUGMgClvDe+Lw4TLRZ5gDQxqiYgP3swcaQYHbg2uVOe0rCL+8MQx8CmLw36ZR3kxn73rArlcfr98hSoOCaylYIBxP83+SKNKZAxQkOspFdut8AeqJIv8DjkpT3bGgSxLZno8W7m1k5WrJYt6shkcnD4=
